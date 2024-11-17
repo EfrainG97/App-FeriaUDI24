@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.MAUI.Controls"
+             x:Class="Prueba_Maui_9.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <Frame CornerRadius="10" Padding="10" BackgroundColor="#f0f0f0" HasShadow="True">
+                <Entry
+                    x:Name="IdEntry"
+                    Placeholder="Ingresa el ID"
+                    Keyboard="Numeric"
+                    BackgroundColor="#e0f7fa"
+                    TextColor="Black"
+                    FontSize="18"
+                    HeightRequest="50"
+                    HorizontalOptions="FillAndExpand"/>
+            </Frame>
+
+            <!-- Botón para buscar -->
+            <Button Text="Buscar Persona"
+                    FontSize="18"
+                    BackgroundColor="#4CAF50"
+                    TextColor="White"
+                    HeightRequest="50"
+                    CornerRadius="10"
+                    Clicked="Button_Clicked"
+                    HorizontalOptions="FillAndExpand" />
+
+            <!-- Resultados de búsqueda -->
+            <Frame BackgroundColor="#eeeeee"
+                   CornerRadius="10"
+                   Padding="15"
+                   HasShadow="True"
+                   Margin="0,20,0,0">
+
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Información del Alumno" FontSize="20" FontAttributes="Bold" TextColor="#333" />
+
+                    <Label Text="ID:" FontSize="16" FontAttributes="Bold" TextColor="#333" />
+                    <Label x:Name="IDLabel" FontSize="16" TextColor="Black" />
+
+                    <Label Text="Nombre:" FontSize="16" FontAttributes="Bold" TextColor="#333" />
+                    <Label x:Name="NombreLabel" FontSize="16" TextColor="Black" />
+
+                    <Label Text="Matricula:" FontSize="16" FontAttributes="Bold" TextColor="#333" />
+                    <Label x:Name="MatriculaLabel" FontSize="16" TextColor="Black" />
+
+                    <Label Text="Modalidad:" FontSize="16" FontAttributes="Bold" TextColor="#333" />
+                    <Label x:Name="ModalidadLabel" FontSize="16" TextColor="Black" />
+
+                    <HorizontalStackLayout>
+                        <CheckBox x:Name="CheckBoxM" IsChecked="{Binding IsCheckM}" IsEnabled="True" />
+                        <Label Text="Asistencia Miércoles" VerticalOptions="Center" FontSize="16" TextColor="#333" />
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout>
+                        <CheckBox x:Name="CheckBoxJ" IsChecked="{Binding IsCheckJ}" IsEnabled="True" />
+                        <Label Text="Asistencia Jueves" VerticalOptions="Center" FontSize="16" TextColor="#333" />
+                    </HorizontalStackLayout>
+
+                    <Button
+                        x:Name="updButton"
+                        Text="Revisar Asistencia"
+                        FontSize="18"
+                        BackgroundColor="Black"
+                        TextColor="White"
+                        HeightRequest="50"
+                        CornerRadius="10"
+                        HorizontalOptions="FillAndExpand"
+                        Clicked="updButton_Clicked"
+                        />
+
+                    <Button
+                        x:Name="scanButton"
+                        Text="Escanear Codigo QR"
+                        FontSize="18"
+                        BackgroundColor="#2196F3"
+                        TextColor="White"
+                        HeightRequest="50"
+                        CornerRadius="10"
+                        HorizontalOptions="FillAndExpand"
+                        Clicked="scanButton_Clicked"/>
+                </VerticalStackLayout>
+            </Frame>
+        </VerticalStackLayout>
+        <!--Aqui va el lector de QR-->
+    </ScrollView>
+</ContentPage>
