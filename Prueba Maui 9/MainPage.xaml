@@ -37,19 +37,19 @@
                    Margin="0,20,0,0">
 
                 <VerticalStackLayout Spacing="10">
-                    <Label Text="Información del Alumno" FontSize="20" FontAttributes="Bold" TextColor="#333" />
+                    <Label Text="Información del Alumno" FontSize="20" FontAttributes='Italic'  TextColor="#333" />
 
-                    <Label Text="ID:" FontSize="16" FontAttributes="Bold" TextColor="#333" />
-                    <Label x:Name="IDLabel" FontSize="16" TextColor="Black" />
+                    <Label Text="ID:" FontSize="16" FontAttributes='Italic' TextColor="#333" />
+                    <Label x:Name="IDLabel" FontSize="16" TextColor="Black" FontAttributes="Bold" />
 
-                    <Label Text="Nombre:" FontSize="16" FontAttributes="Bold" TextColor="#333" />
-                    <Label x:Name="NombreLabel" FontSize="16" TextColor="Black" />
+                    <Label Text="Nombre:" FontSize="16" FontAttributes='Italic' TextColor="#333" />
+                    <Label x:Name="NombreLabel" FontSize="16" TextColor="Black" FontAttributes="Bold" />
 
-                    <Label Text="Matricula:" FontSize="16" FontAttributes="Bold" TextColor="#333" />
-                    <Label x:Name="MatriculaLabel" FontSize="16" TextColor="Black" />
+                    <Label Text="Matricula:" FontSize="16" FontAttributes='Italic' TextColor="#333" />
+                    <Label x:Name="MatriculaLabel" FontSize="16" TextColor="Black" FontAttributes="Bold" />
 
-                    <Label Text="Modalidad:" FontSize="16" FontAttributes="Bold" TextColor="#333" />
-                    <Label x:Name="ModalidadLabel" FontSize="16" TextColor="Black" />
+                    <Label Text="Modalidad:" FontSize="16" FontAttributes='Italic' TextColor="#333" />
+                    <Label x:Name="ModalidadLabel" FontSize="16" TextColor="Black" FontAttributes="Bold" />
 
                     <HorizontalStackLayout>
                         <CheckBox x:Name="CheckBoxM" IsChecked="{Binding IsCheckM}" IsEnabled="True" />

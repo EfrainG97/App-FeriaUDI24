@@ -14,7 +14,7 @@ namespace Prueba_Maui_9.Controller
         public static HttpClient CrearCliente()
         {
             var httpClient = new HttpClient();
-            httpClient.BaseAddress = new Uri("http://10.0.2.2:85/");
+            httpClient.BaseAddress = new Uri("http://192.168.137.1:85/");
             httpClient.DefaultRequestHeaders.Accept.Clear();
             httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             return httpClient;
@@ -37,6 +37,7 @@ namespace Prueba_Maui_9.Controller
         public async Task<bool> ActualizarAlumno(int id, Alumno alumno)
         {
             var json = JsonConvert.SerializeObject(alumno);
+            Console.WriteLine(json);
             var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
 
             HttpResponseMessage response = await client.PutAsync($"api/Alumno/{id}", content);
@@ -45,7 +46,12 @@ namespace Prueba_Maui_9.Controller
             {
                 return true;
             }
-            return false;
+            else
+            {
+                var errorContent = await response.Content.ReadAsStringAsync();
+                Console.WriteLine($"Error del servidor: {response.StatusCode} - {errorContent}");
+                return false;
+            }
         }
     }
 }
