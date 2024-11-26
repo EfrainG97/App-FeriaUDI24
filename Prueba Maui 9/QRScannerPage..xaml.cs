@@ -14,7 +14,7 @@ public partial class QRScannerPage : ContentPage
         mainPage = page ?? throw new ArgumentNullException(nameof(page)); // Verifica que no sea null
         barcodeView.Options = new BarcodeReaderOptions()
         {
-            Formats = BarcodeFormat.QrCode,
+            Formats = BarcodeFormats.All,
             AutoRotate = true,
             Multiple = false
         };
