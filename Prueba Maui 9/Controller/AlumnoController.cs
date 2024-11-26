@@ -14,7 +14,7 @@ namespace Prueba_Maui_9.Controller
         public static HttpClient CrearCliente()
         {
             var httpClient = new HttpClient();
-            httpClient.BaseAddress = new Uri("http://192.168.137.1:85/");
+            httpClient.BaseAddress = new Uri("http://10.0.2.2:85/");
             httpClient.DefaultRequestHeaders.Accept.Clear();
             httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             return httpClient;
