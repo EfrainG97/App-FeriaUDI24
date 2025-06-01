@@ -14,7 +14,7 @@ namespace Prueba_Maui_9.Controller
         public static HttpClient CrearCliente()
         {
             var httpClient = new HttpClient();
-            httpClient.BaseAddress = new Uri("http://10.0.2.2:85/");
+            httpClient.BaseAddress = new Uri("http://172.16.0.88:85/");
             httpClient.DefaultRequestHeaders.Accept.Clear();
             httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             return httpClient;
@@ -24,7 +24,7 @@ namespace Prueba_Maui_9.Controller
 
         public async Task<Alumno> ObtenerAlumnoID(int id)
         {
-            HttpResponseMessage response = await client.GetAsync($"api/Alumno/{id}");
+            HttpResponseMessage response = await client.GetAsync($"api/Alumnos/{id}");
             if (response.IsSuccessStatusCode)
             {
                 var jsonResponse = await response.Content.ReadAsStringAsync();
@@ -40,7 +40,7 @@ namespace Prueba_Maui_9.Controller
             Console.WriteLine(json);
             var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
 
-            HttpResponseMessage response = await client.PutAsync($"api/Alumno/{id}", content);
+            HttpResponseMessage response = await client.PutAsync($"api/Alumnos/{id}", content);
 
             if (response.IsSuccessStatusCode)
             {

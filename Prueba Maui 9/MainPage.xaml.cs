@@ -15,6 +15,7 @@ namespace Prueba_Maui_9
 
         public bool IsCheckM { get; set; }
         public bool IsCheckJ { get; set; }
+        public bool IsCheckConf { get; set; }
 
 
         AlumnoController ac = new AlumnoController();
@@ -28,11 +29,11 @@ namespace Prueba_Maui_9
                     var persona = await ac.ObtenerAlumnoID(id);
                     if (persona != null)
                     {
-                        IDLabel.Text = persona.ID.ToString();
+                        IDLabel.Text = persona.IDAlumno.ToString();
                         NombreLabel.Text = persona.Nombre;
                         MatriculaLabel.Text = persona.Matricula.ToString();
                         ModalidadLabel.Text = persona.Modalidad;
-                        if (IsCheckM = persona.AsisM == 1)
+                        if (IsCheckM = persona.AsisMar == 1)
                         {
                             CheckBoxM.IsEnabled = false;
                         }
@@ -40,7 +41,7 @@ namespace Prueba_Maui_9
                         {
                             CheckBoxM.IsEnabled = true;
                         }
-                        if (IsCheckJ = persona.AsisJ == 1)
+                        if (IsCheckJ = persona.AsisMie == 1)
                         {
                             CheckBoxJ.IsEnabled = false;
                         }
@@ -48,8 +49,18 @@ namespace Prueba_Maui_9
                         {
                             CheckBoxJ.IsEnabled = true;
                         }
+                        if (IsCheckConf = persona.AsisConf == 1)
+                        {
+                            CheckBoxConf.IsEnabled = false;
+                        }
+                        else
+                        {
+                            CheckBoxConf.IsEnabled = true;
+                        }
+
                         CheckBoxM.IsChecked = IsCheckM;
                         CheckBoxJ.IsChecked = IsCheckJ;
+                        CheckBoxConf.IsChecked = IsCheckConf;
                     }
                     else
                     {
@@ -71,12 +82,13 @@ namespace Prueba_Maui_9
             al.Nombre = NombreLabel.Text;
             al.Matricula = Convert.ToInt32(MatriculaLabel.Text);
             al.Modalidad = ModalidadLabel.Text;
-            al.AsisM = Convert.ToInt32(CheckBoxM.IsChecked);
-            al.AsisJ = Convert.ToInt32(CheckBoxJ.IsChecked);
+            al.AsisMar = Convert.ToInt32(CheckBoxM.IsChecked);
+            al.AsisMie = Convert.ToInt32(CheckBoxJ.IsChecked);
+            al.AsisConf = Convert.ToInt32(CheckBoxConf.IsChecked);
 
             try
             {
-                if (await ac.ActualizarAlumno(id, new Alumno(id, al.Nombre, al.Matricula, al.Modalidad, al.AsisM, al.AsisJ)))
+                if (await ac.ActualizarAlumno(id, new Alumno(id, al.Nombre, al.Matricula, al.Modalidad, al.AsisMar, al.AsisMie, al.AsisConf)))
                 {
                     LimpiarCampos();
                     await DisplayAlert("Exito", "Se ha revisado asitencia con exito", "Ok");
@@ -102,6 +114,7 @@ namespace Prueba_Maui_9
             IdEntry.Text = string.Empty;
             IsCheckM = false;
             IsCheckJ = false;
+            IsCheckConf = false;
             IDLabel.Text = string.Empty;
         }
 
@@ -117,11 +130,11 @@ namespace Prueba_Maui_9
                 var persona = await ac.ObtenerAlumnoID(id);
                 if (persona != null)
                 {
-                    IDLabel.Text = persona.ID.ToString();
+                    IDLabel.Text = persona.IDAlumno.ToString();
                     NombreLabel.Text = persona.Nombre;
                     MatriculaLabel.Text = persona.Matricula.ToString();
                     ModalidadLabel.Text = persona.Modalidad;
-                    if (IsCheckM = persona.AsisM == 1)
+                    if (IsCheckM = persona.AsisMar == 1)
                     {
                         CheckBoxM.IsEnabled = false;
                     }
@@ -129,7 +142,7 @@ namespace Prueba_Maui_9
                     {
                         CheckBoxM.IsEnabled = true;
                     }
-                    if (IsCheckJ = persona.AsisJ == 1)
+                    if (IsCheckJ = persona.AsisMie == 1)
                     {
                         CheckBoxJ.IsEnabled = false;
                     }
@@ -137,8 +150,17 @@ namespace Prueba_Maui_9
                     {
                         CheckBoxJ.IsEnabled = true;
                     }
+                    if (IsCheckConf = persona.AsisConf == 1)
+                    {
+                        CheckBoxConf.IsEnabled = false;
+                    }
+                    else
+                    {
+                        CheckBoxConf.IsEnabled = true;
+                    }
                     CheckBoxM.IsChecked = IsCheckM;
                     CheckBoxJ.IsChecked = IsCheckJ;
+                    CheckBoxConf.IsChecked = IsCheckConf;
                 }
                 else
                 {

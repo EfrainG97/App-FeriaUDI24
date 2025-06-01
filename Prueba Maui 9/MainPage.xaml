@@ -53,12 +53,17 @@
 
                     <HorizontalStackLayout>
                         <CheckBox x:Name="CheckBoxM" IsChecked="{Binding IsCheckM}" IsEnabled="True" />
-                        <Label Text="Asistencia Miércoles" VerticalOptions="Center" FontSize="16" TextColor="#333" />
+                        <Label Text="Asistencia Martes" VerticalOptions="Center" FontSize="16" TextColor="#333" />
                     </HorizontalStackLayout>
 
                     <HorizontalStackLayout>
                         <CheckBox x:Name="CheckBoxJ" IsChecked="{Binding IsCheckJ}" IsEnabled="True" />
-                        <Label Text="Asistencia Jueves" VerticalOptions="Center" FontSize="16" TextColor="#333" />
+                        <Label Text="Asistencia Miércoles" VerticalOptions="Center" FontSize="16" TextColor="#333" />
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout>
+                        <CheckBox x:Name="CheckBoxConf" IsChecked="{Binding IsCheckC}" IsEnabled="True" />
+                        <Label Text="Asistencia Conferencia" VerticalOptions="Center" FontSize="16" TextColor="#333" />
                     </HorizontalStackLayout>
 
                     <Button

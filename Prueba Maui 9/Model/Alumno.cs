@@ -8,22 +8,27 @@ namespace Prueba_Maui_9.Model
 {
     internal class Alumno
     {
-        public Alumno(int iD, string? nombre, int matricula, string? modalidad, int asisM, int asisJ)
+        public Alumno(int iDAlumno, string? nombre, int matricula, string? modalidad, int asisMar, int asisMie, int asisConf)
         {
-            ID = iD;
+            IDAlumno = iDAlumno;
             Nombre = nombre;
             Matricula = matricula;
             Modalidad = modalidad;
-            AsisM = asisM;
-            AsisJ = asisJ;
+            AsisMar = asisMar;
+            AsisMie = asisMie;
+            AsisConf = asisConf;
         }
-        public Alumno() { }
 
-        public int ID { get; set; }
+        public Alumno()
+        {
+        }
+
+        public int IDAlumno { get; set; }
         public string? Nombre { get; set; }
         public int Matricula { get; set; }
         public string? Modalidad { get; set; }
-        public int AsisM { get; set; }
-        public int AsisJ { get; set; }
+        public int AsisMar { get; set; }
+        public int AsisMie { get; set; }
+        public int AsisConf { get; set; }
     }
 }
